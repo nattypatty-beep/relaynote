@@ -38,10 +38,16 @@ test('a note posted by one teammate appears live for another', async ({ users })
   await Promise.all([alice.page.goto('/home'), bob.page.goto('/home')])
   for (const user of [alice, bob]) {
     await expect(user.page.getByTestId('app-navigation')).toBeVisible({ timeout: 15_000 })
+    await expect(user.page.getByTestId('presence-connection')).toHaveAttribute(
+      'title',
+      'Live presence connected',
+      { timeout: 15_000 },
+    )
   }
 
   await alice.page.getByTestId('note-title-input').fill(title)
   await alice.page.getByTestId('note-body-input').fill('Checking realtime handoff sync between two signed-in users.')
+  await expect(bob.page.getByText(/writing a note/)).toBeVisible({ timeout: 15_000 })
   await alice.page.getByTestId('note-submit').click()
 
   const aliceTitle = alice.page.getByTestId('note-title').filter({ hasText: title })

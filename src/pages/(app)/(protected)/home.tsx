@@ -222,6 +222,7 @@ export default function HomePage() {
               </span>
             )}
             <span
+              data-testid="presence-connection"
               className={cn('h-1.5 w-1.5 rounded-full', connected ? 'bg-success' : 'bg-muted-foreground')}
               title={connected ? 'Live presence connected' : 'Presence connecting'}
             />
