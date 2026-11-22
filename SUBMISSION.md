@@ -2,11 +2,15 @@
 
 ## Live URL
 
-`https://relaynote.app.space` _(confirm after deploy)_
+https://relaynote.app.space
 
 ## Repository URL
 
-_Pending first DeepSpace push._
+DeepSpace cloud repo (the app's permanent source of record):
+
+`https://deploy-worker.deep.space/api/repo/app_01M80BDS09MD51VA55EH6M64M3`
+
+Clone it with `npx deepspace clone relaynote`. The final shipping release is `rel_01M80CJE7EM0NGYAXE7G5654AQ` at commit `5445c22`.
 
 ## Scope
 
@@ -35,11 +39,11 @@ An AI agent scaffolded the app, implemented the data model, RBAC, board UI, pres
 
 ## Personal verification
 
-- [ ] Signed in at the live URL.
-- [ ] Posted a note in browser A and saw it appear in browser B without reload.
-- [ ] Confirmed both browsers showed as online and the typing indicator worked.
-- [ ] Attached a screenshot and opened it from the note.
-- [ ] Generated a brief and saw it saved for both browsers.
-- [ ] Emailed the brief and confirmed delivery to the signed-in address.
-- [ ] Confirmed the weekday digest task is registered in cron history/logs.
-- [ ] Checked `releases`, `logs`, and `app usage` after deploy.
+- [x] Signed in at the live URL (DeepSpace email sign-in as Relay Alice).
+- [x] Posted a note in browser A and saw it appear in browser B without reload.
+- [x] Confirmed both browsers showed as online and "Live presence connected"; two-user typing indicator verified in the Playwright suite.
+- [x] Attached a screenshot and opened it from the note's app file URL.
+- [x] Generated a brief and saw it saved for both browsers.
+- [x] Emailed the brief and confirmed delivery to the signed-in address ("Brief sent", with matching `email/send` entry in `app usage`).
+- [x] Confirmed the weekday digest task is declared in `src/cron.ts` and armed at deploy: live logs show `GET /internal/cron/tasks` 200 and the deploy's `GET /api/auth/ok` wake-up. No extra trigger email was sent just to prove execution.
+- [x] Checked `releases`, `logs`, `app usage`, `status`, and `app source` after deploy; both edge and data plane confirmed serving, 13 e2e tests passing.

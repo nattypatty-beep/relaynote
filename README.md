@@ -4,8 +4,9 @@ A signed-in shift-handoff board for small teams. Post what changed, what is bloc
 
 ## Live app
 
-- URL: _pending deploy_
-- Repository: _pending first push_
+- URL: https://relaynote.app.space
+- Repository (DeepSpace cloud repo): `https://deploy-worker.deep.space/api/repo/app_01M80BDS09MD51VA55EH6M64M3` (`npx deepspace clone relaynote`)
+- Release: `rel_01M80CJE7EM0NGYAXE7G5654AQ` (commit `5445c22`, clean worktree, DeepSpace source)
 
 ## What it does
 
@@ -44,10 +45,11 @@ npm run dev
 
 ## Verification
 
-- `npm run type-check` passes.
-- `npm run build` passes after app registration.
-- `npx deepspace test run e2e` covers smoke, API auth gating, and a two-user note-sync flow.
-- Live checks after deploy: sign in, post a note, observe it in a second signed-in browser, attach a screenshot, generate a brief, email the brief, reload, and inspect presence.
+- `npm run type-check`, `npm run lint`, and `npm run build` pass.
+- `npx deepspace test run e2e` passes: 13 tests covering smoke, API auth gating, and the two-user note-sync/typing flow.
+- Live checks after deploy: signed in through the app UI, posted a note in browser A and saw it appear in browser B without reload, confirmed "Live presence connected" in both tabs, attached a screenshot and opened it from the app's file URL, generated a brief that synced to both tabs, clicked "Email me this brief" and saw "Brief sent", then deleted the test notes.
+- `npx deepspace logs`, `releases`, `status`, `app source`, and `app usage` were checked after the final deploy; edge and data plane were both confirmed serving.
+- The weekday cron task is declared in `src/cron.ts` and was armed by the deploy's `GET /api/auth/ok` health request; `GET /internal/cron/tasks` returned 200 in the live logs. No extra trigger email was sent just to prove execution.
 
 ## Scope and tradeoffs
 
@@ -57,4 +59,4 @@ The main privacy tradeoff is screenshot storage. `scope: 'app'` makes an uploade
 
 ## Agent help and personal verification
 
-An AI agent scaffolded the project, implemented the schemas, actions, cron task, pages, theme, tests, and documentation, then ran type-checks and tests. The human operator signs in with DeepSpace OAuth and personally verifies the live URL, the two-browser handoff flow, the generated brief, the emailed brief, and the scheduled-digest configuration before submission.
+An AI agent scaffolded the project, implemented the schemas, actions, cron task, pages, theme, tests, and documentation, then ran type-checks, lint, builds, and the browser/API test suite. The human operator completed DeepSpace OAuth and approved the paid AI-brief and email verification; both were then exercised on the live app by the agent, and the human can repeat any of those checks at the live URL.
