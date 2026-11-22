@@ -6,11 +6,9 @@ https://relaynote.app.space
 
 ## Repository URL
 
-DeepSpace cloud repo (the app's permanent source of record):
+https://github.com/nattypatty-beep/relaynote
 
-`https://deploy-worker.deep.space/api/repo/app_01M80BDS09MD51VA55EH6M64M3`
-
-Clone it with `npx deepspace clone relaynote`. The app ships from a clean `main` branch with DeepSpace source; `npx deepspace releases` shows the immutable release ledger.
+This is a full public mirror of the code for submission and review. The app's authoritative source is the DeepSpace cloud repo (`https://deploy-worker.deep.space/api/repo/app_01M80BDS09MD51VA55EH6M64M3`), because the first deploy permanently latched DeepSpace as the source; the live app deploys from DeepSpace, and GitHub is a copy. The app ships from a clean `main` branch; `npx deepspace releases` shows the immutable release ledger.
 
 ## Scope
 

@@ -5,7 +5,8 @@ A signed-in shift-handoff board for small teams. Post what changed, what is bloc
 ## Live app
 
 - URL: https://relaynote.app.space
-- Repository (DeepSpace cloud repo): `https://deploy-worker.deep.space/api/repo/app_01M80BDS09MD51VA55EH6M64M3` (`npx deepspace clone relaynote`)
+- Repository (GitHub mirror): https://github.com/nattypatty-beep/relaynote
+- Authoritative source: the DeepSpace cloud repo (`https://deploy-worker.deep.space/api/repo/app_01M80BDS09MD51VA55EH6M64M3`); the app deploys from there. GitHub is a full copy for review and submission.
 - Deployed from a clean `main` branch with DeepSpace source; `npx deepspace releases` lists the immutable release ledger.
 
 ## What it does
