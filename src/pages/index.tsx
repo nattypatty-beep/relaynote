@@ -14,6 +14,7 @@ export default function Landing() {
     <>
       <Seo
         {...seo}
+        path="/"
         title={`${APP_NAME} — leave the next shift a clue`}
         description="Relaynote is a live handoff board for small teams. Post notes and screenshots, see who is around, and turn the board into a shared brief you can email."
       />

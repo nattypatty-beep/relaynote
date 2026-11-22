@@ -9,7 +9,7 @@ test.describe('API tests', () => {
   test('server actions require authentication', async ({ request }) => {
     const res = await request.post('/api/actions/generateBrief', { data: {} })
     expect(res.status()).toBe(401)
-    expect(await res.json()).toMatchObject({ success: false })
+    expect(await res.json()).toMatchObject({ error: expect.any(String) })
   })
 
   test('WebSocket endpoint exists', async ({ page }) => {
