@@ -10,7 +10,7 @@ DeepSpace cloud repo (the app's permanent source of record):
 
 `https://deploy-worker.deep.space/api/repo/app_01M80BDS09MD51VA55EH6M64M3`
 
-Clone it with `npx deepspace clone relaynote`. The final shipping release is `rel_01M80CJE7EM0NGYAXE7G5654AQ` at commit `5445c22`.
+Clone it with `npx deepspace clone relaynote`. The app ships from a clean `main` branch with DeepSpace source; `npx deepspace releases` shows the immutable release ledger.
 
 ## Scope
 

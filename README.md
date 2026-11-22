@@ -6,7 +6,7 @@ A signed-in shift-handoff board for small teams. Post what changed, what is bloc
 
 - URL: https://relaynote.app.space
 - Repository (DeepSpace cloud repo): `https://deploy-worker.deep.space/api/repo/app_01M80BDS09MD51VA55EH6M64M3` (`npx deepspace clone relaynote`)
-- Release: `rel_01M80CJE7EM0NGYAXE7G5654AQ` (commit `5445c22`, clean worktree, DeepSpace source)
+- Deployed from a clean `main` branch with DeepSpace source; `npx deepspace releases` lists the immutable release ledger.
 
 ## What it does
 
